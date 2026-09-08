@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gallery | Dalemu Rides Uganda</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+.hero{
+background:url("images/gallery-banner.jpg") center center/cover no-repeat;
+padding: 130;
+}
+
+.overlay{
+background:rgba(31, 30, 30, 0.7);
+}
+
+.gallery-card{
+overflow:hidden;
+border-radius:16px;
+}
+
+.gallery-card img{
+transition:.5s;
+width:100%;
+height:320px;
+object-fit:cover;
+}
+
+.gallery-card:hover img{
+transform:scale(1.08);
+}
+
+.gallery-overlay{
+
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.55);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+opacity:0;
+transition:.4s;
+
+}
+
+.gallery-card:hover .gallery-overlay{
+
+opacity:1;
+
+}
+/* ==========================================
+   DALEMU MOBILE MENU
+   ========================================== */
+
+.dalemu-toggle {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #11140f;
+
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: 5px;
+
+    position: relative;
+    z-index: 5000;
+}
+
+.dalemu-toggle span {
+    width: 22px;
+    height: 2px;
+
+    background: white;
+
+    border-radius: 5px;
+
+    transition: .3s ease;
+}
+
+
+/* MOBILE SIDE MENU */
+
+.dalemu-mobile-menu {
+
+    position: fixed;
+
+    top: 0;
+    right: 0;
+
+    width: 290px;
+    height: 100vh;
+
+    background: #11140f;
+
+    padding: 25px;
+
+    transform: translateX(100%);
+
+    transition: transform .4s cubic-bezier(.77,0,.18,1);
+
+    z-index: 4500;
+
+    box-shadow: -10px 0 35px rgba(0,0,0,.35);
+}
+
+
+/* OPEN MENU */
+
+.dalemu-mobile-menu.dalemu-show {
+    transform: translateX(0);
+}
+
+
+/* MENU HEADER */
+
+.dalemu-menu-header {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 35px;
+
+    color: #c9a227;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* CLOSE BUTTON */
+
+.dalemu-close {
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.1);
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.dalemu-close:hover {
+
+    background: #c9a227;
+
+    color: #11140f;
+}
+
+
+/* MENU LINKS */
+
+.dalemu-mobile-menu a {
+
+    display: block;
+
+    padding: 16px 12px;
+
+    margin-bottom: 5px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    border-radius: 8px;
+
+    transition: .25s ease;
+}
+
+
+.dalemu-mobile-menu a:hover {
+
+    color: #e2c45a;
+
+    background: rgba(201,162,39,.12);
+
+    padding-left: 20px;
+}
+
+
+/* BACKGROUND OVERLAY */
+
+.dalemu-menu-bg {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.55);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .3s ease;
+
+    z-index: 4000;
+}
+
+
+.dalemu-menu-bg.dalemu-bg-show {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* MOBILE ONLY */
+
+@media (max-width: 700px) {
+
+    .dalemu-toggle {
+        display: flex;
+    }
+
+}
+
+
+/* DESKTOP */
+
+@media (min-width: 701px) {
+
+    .dalemu-mobile-menu,
+    .dalemu-menu-bg {
+        display: none;
+    }
+
+}
+</style>
+
+</head>
+
+<body class="bg-gray-50">
+
+<!-- ================= NAVIGATION ================= -->
+
+<header class="bg-black text-white">
+
+<div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
+
+
+
+</div>
+
+<!-- MOBILE MENU BUTTON -->
+<button class="dalemu-toggle" id="dalemuToggle" type="button" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<!-- MOBILE MENU -->
+<div class="dalemu-mobile-menu" id="dalemuMobileMenu">
+
+    <div class="dalemu-menu-header">
+        <span>MENU</span>
+
+        <button class="dalemu-close" id="dalemuClose" type="button">
+            &times;
+        </button>
+    </div>
+
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="services.html">Services</a>
+    <a href="fleet.html">Fleet</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact Us</a>
+
+</div>
+
+<div class="dalemu-menu-bg" id="dalemuMenuBg"></div>
+
+
+
+</div>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="overlay">
+
+<div class="max-w-6xl mx-auto py-36 text-center text-white px-6">
+
+<h4 class="uppercase tracking-widest text-orange-400">
+
+Explore Uganda Through Our Lens
+
+</h4>
+
+<h1 class="text-6xl font-extrabold mt-5">
+
+DALEMU GALLERY
+
+</h1>
+<img src="badge.png" class="h-20 mx-auto mb-6">
+
+<p class="text-xl mt-8 max-w-3xl mx-auto">
+
+Discover unforgettable safari adventures, beautiful destinations, and memorable experiences with Dalemu Rides Uganda.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FILTER BUTTONS ================= -->
+
+<section class="py-16">
+
+<div class="max-w-7xl mx-auto text-center">
+
+<h2 class="text-5xl font-bold">
+
+Travel Moments
+
+</h2>
+
+</section>
+
+<!-- ================= GALLERY ================= -->
+
+<section class="pb-24">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+<!-- Repeat this card for every image -->
+
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0012.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+Murchison Falls
+
+</h3>
+
+<p>
+
+Safari Adventure
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0013.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+Murchison Falls
+
+</h3>
+
+<p>
+
+Professional Service
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0014.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+Murchison Falls
+
+</h3>
+
+<p>
+
+Luxury Transport
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0015.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+ROYAL TOMBS
+
+</h3>
+
+<p>
+
+Wildlife Safari
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0016.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+KABALE ROADS
+
+</h3>
+
+<p>
+
+Nature Experience
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0017.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+Travel
+
+</h3>
+
+<p>
+
+Murchison Falls
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0018.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+Murchison Falls
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0019.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+TORORO PALACE
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0020.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+Murchison Falls
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0021.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+Murchison Falls
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0021.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+Murchison Falls
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0022.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+ROYAL PALACE
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0023.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+ROYAL PALACE
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0024.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+RIVER NILE 
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0025.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+MURCHSION FALLS
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0026.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+RESORT BEACH
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0027.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+MURCHISON FALLS
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0028.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+MURCHISON FALLS
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0029.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+MURCHISON FALLS
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0030.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+MURCHISON FALLS
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0031.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+ROYAL TOMBS
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0032.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+MURCHISON FALLS
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0033.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+MURCHISON FALLS
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0034.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+MURCHISON FALLS
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0035.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+HOT SPRINGS
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0036.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+NORTHERN UGANDA 
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0037.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+MURCHISON FALLS
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0038.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+Travel
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0039.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+Travel
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="images/gallery/IMG-20260808-WA0041.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+Travel
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0041.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+Travel
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0042.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+HOT SPRINGS
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0043.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+WESTERN UGANDA
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0044.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+SIPI FALLS 
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0045.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+Travel
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0046.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+MOUNTAIN RWENZORI
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0047.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+MOUNTAIN RWENZORI
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0048.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+BUDDUDAH FOREST
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0049.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+HOT SPRINGS
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0050.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+Travel
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0051.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+Travel
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="gallery-card relative shadow-lg">
+
+<img src="IMG-20260808-WA0052.jpg">
+
+<div class="gallery-overlay">
+
+<div class="text-center text-white">
+
+<h3 class="text-2xl font-bold">
+
+Travel
+
+</h3>
+
+<p>
+
+Travel Memories
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= CTA ================= -->
+
+<section class="bg-orange-500 py-24">
+
+<div class="max-w-6xl mx-auto text-center text-white">
+
+<h2 class="text-5xl font-bold">
+
+Create Your Own Adventure
+
+</h2>
+
+<p class="text-xl mt-6">
+
+Book your next unforgettable journey with Dalemu Rides Uganda.
+
+</p>
+
+<a href="https://wa.me/256700301716" target="_blank"
+
+class="inline-block bg-white text-orange-600 font-bold px-8 py-4 rounded-lg mt-10">
+WHATSAPP US
+
+</a>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="bg-black text-white py-16">
+
+<div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 px-6">
+
+<div>
+
+
+
+</div>
+
+<div>
+
+<div>
+
+<a href="tel;+256 700 301 716"><h3 class="font-bold text-orange-500">
+
+Contact   📞 +256 700 301 716
+
+</h3>
+
+
+</a>
+<p>
+
+📍 Kyebando, Kampala, Uganda
+
+</p>
+
+</div>
+
+</div>
+
+<div class="text-center text-gray-400 mt-12">
+
+© 2026 Dalemu Rides Uganda. All Rights Reserved.
+
+</div>
+
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+    const openButton = document.getElementById("dalemuToggle");
+    const closeButton = document.getElementById("dalemuClose");
+
+    const mobileMenu = document.getElementById("dalemuMobileMenu");
+    const menuBackground = document.getElementById("dalemuMenuBg");
+
+
+    function openDalemuMenu() {
+
+        mobileMenu.classList.add("dalemu-show");
+
+        menuBackground.classList.add("dalemu-bg-show");
+
+        document.body.style.overflow = "hidden";
+
+    }
+
+
+    function closeDalemuMenu() {
+
+        mobileMenu.classList.remove("dalemu-show");
+
+        menuBackground.classList.remove("dalemu-bg-show");
+
+        document.body.style.overflow = "";
+
+    }
+
+
+    /* OPEN */
+
+    openButton.addEventListener("click", function () {
+
+        openDalemuMenu();
+
+    });
+
+
+    /* CLOSE */
+
+    closeButton.addEventListener("click", function () {
+
+        closeDalemuMenu();
+
+    });
+
+
+    /* CLOSE WHEN CLICKING OUTSIDE */
+
+    menuBackground.addEventListener("click", function () {
+
+        closeDalemuMenu();
+
+    });
+
+
+    /* CLOSE MENU AFTER SELECTING A PAGE */
+
+    const menuLinks = mobileMenu.querySelectorAll("a");
+
+    menuLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            closeDalemuMenu();
+
+        });
+
+    });
+
+});
+</script>
+</body>
+</html>

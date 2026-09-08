@@ -1,0 +1,277 @@
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+/* Large Screens */
+
+@media (max-width:1200px){
+
+.navbar{
+padding:20px;
+}
+
+nav ul{
+gap:18px;
+}
+
+.hero h1{
+font-size:70px;
+}
+
+.package-right{
+grid-template-columns:repeat(2,1fr);
+}
+
+.fleet-grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+.why-grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+.footer-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+
+/* Tablets */
+
+@media (max-width:992px){
+
+.navbar{
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+nav{
+width:100%;
+}
+
+nav ul{
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.phone{
+display:none;
+}
+
+.hero{
+height:auto;
+padding:180px 20px 100px;
+}
+
+.hero h1{
+font-size:60px;
+}
+
+.hero h3{
+font-size:40px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.hero-buttons{
+flex-direction:column;
+align-items:center;
+}
+
+.features{
+grid-template-columns:repeat(2,1fr);
+padding:40px;
+}
+
+.packages{
+grid-template-columns:1fr;
+padding:60px 30px;
+}
+
+.package-left{
+text-align:center;
+margin-bottom:40px;
+}
+
+.package-right{
+grid-template-columns:repeat(2,1fr);
+}
+
+.fleet{
+padding:60px 30px;
+}
+
+.fleet-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.why{
+padding:60px 30px;
+}
+
+.why-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+.footer-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+
+/* Phones */
+
+@media (max-width:768px){
+
+.logo img{
+width:140px;
+}
+
+nav ul{
+flex-direction:column;
+align-items:center;
+gap:12px;
+}
+
+.book-btn{
+padding:12px 22px;
+}
+
+.hero h1{
+font-size:48px;
+}
+
+.hero h3{
+font-size:34px;
+}
+
+.hero p{
+font-size:17px;
+}
+
+.hero-buttons{
+gap:15px;
+}
+
+.features{
+grid-template-columns:1fr;
+}
+
+.package-right{
+grid-template-columns:1fr;
+}
+
+.fleet-header{
+flex-direction:column;
+text-align:center;
+gap:20px;
+}
+
+.fleet-grid{
+grid-template-columns:1fr;
+}
+
+.why-title h2{
+font-size:38px;
+}
+
+.why-grid{
+grid-template-columns:1fr;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.footer-grid{
+grid-template-columns:1fr;
+}
+
+.footer-bottom{
+flex-direction:column;
+text-align:center;
+gap:15px;
+}
+
+.whatsapp{
+right:20px;
+bottom:20px;
+width:60px;
+height:60px;
+font-size:30px;
+}
+
+.scroll-top{
+left:20px;
+bottom:20px;
+}
+
+}
+
+
+/* Small Phones */
+
+@media (max-width:480px){
+
+.navbar{
+padding:15px;
+}
+
+.hero{
+padding:150px 15px 80px;
+}
+
+.hero h1{
+font-size:38px;
+line-height:1.2;
+}
+
+.hero h3{
+font-size:28px;
+}
+
+.hero p{
+font-size:15px;
+}
+
+.gold-btn,
+.dark-btn,
+.book-btn{
+width:100%;
+justify-content:center;
+}
+
+.package-left h2{
+font-size:34px;
+}
+
+.fleet-header h2{
+font-size:34px;
+}
+
+.why-title h2{
+font-size:32px;
+}
+
+.card img{
+height:200px;
+}
+
+.vehicle-card img{
+height:180px;
+}
+
+footer{
+padding:50px 20px 20px;
+}
+
+}

@@ -1,0 +1,419 @@
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+/* Fade In */
+
+@keyframes fadeIn{
+
+0%{
+opacity:0;
+transform:translateY(40px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* Fade Left */
+
+@keyframes fadeLeft{
+
+0%{
+opacity:0;
+transform:translateX(-60px);
+}
+
+100%{
+opacity:1;
+transform:translateX(0);
+}
+
+}
+
+/* Fade Right */
+
+@keyframes fadeRight{
+
+0%{
+opacity:0;
+transform:translateX(60px);
+}
+
+100%{
+opacity:1;
+transform:translateX(0);
+}
+
+}
+
+/* Zoom In */
+
+@keyframes zoomIn{
+
+0%{
+opacity:0;
+transform:scale(.8);
+}
+
+100%{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+/* Float */
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+/* Pulse */
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* Rotate */
+
+@keyframes rotate{
+
+0%{
+transform:rotate(0deg);
+}
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+/* Slide Up */
+
+@keyframes slideUp{
+
+0%{
+opacity:0;
+transform:translateY(80px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* Shine */
+
+@keyframes shine{
+
+0%{
+left:-100%;
+}
+
+100%{
+left:120%;
+}
+
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero-content h3{
+animation:fadeLeft 1s ease;
+}
+
+.hero-content h1{
+animation:fadeRight 1.2s ease;
+}
+
+.hero-content p{
+animation:fadeIn 1.5s ease;
+}
+
+.hero-buttons{
+animation:fadeIn 2s ease;
+}
+
+/* ==========================================
+   FEATURES
+========================================== */
+
+.feature{
+transition:.4s;
+}
+
+.feature:hover{
+
+transform:translateY(-10px);
+
+}
+
+.feature:hover i{
+
+animation:pulse .8s infinite;
+
+}
+
+/* ==========================================
+   CARDS
+========================================== */
+
+.card{
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-12px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+}
+
+.card img{
+
+transition:.5s;
+
+}
+
+.card:hover img{
+
+transform:scale(1.08);
+
+}
+
+/* ==========================================
+   VEHICLE CARDS
+========================================== */
+
+.vehicle-card{
+
+transition:.4s;
+
+}
+
+.vehicle-card:hover{
+
+transform:translateY(-12px);
+
+}
+
+.vehicle-card:hover img{
+
+transform:scale(1.08);
+
+transition:.6s;
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.book-btn,
+.gold-btn,
+.dark-btn,
+.view-btn{
+
+transition:.35s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.book-btn::before,
+.gold-btn::before,
+.dark-btn::before,
+.view-btn::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:60px;
+
+height:100%;
+
+background:rgba(255,255,255,.3);
+
+transform:skewX(-25deg);
+
+}
+
+.book-btn:hover::before,
+.gold-btn:hover::before,
+.dark-btn:hover::before,
+.view-btn:hover::before{
+
+animation:shine .8s;
+
+}
+
+/* ==========================================
+   SOCIAL ICONS
+========================================== */
+
+.socials a{
+
+transition:.3s;
+
+}
+
+.socials a:hover{
+
+transform:translateY(-6px);
+
+}
+
+/* ==========================================
+   WHATSAPP
+========================================== */
+
+.whatsapp{
+
+animation:float 3s ease infinite;
+
+}
+
+/* ==========================================
+   ICONS
+========================================== */
+
+.feature i,
+.why-box i{
+
+transition:.4s;
+
+}
+
+.why-box:hover i{
+
+animation:rotate 1s linear;
+
+}
+
+/* ==========================================
+   IMAGE HOVER
+========================================== */
+
+img{
+
+transition:.5s;
+
+}
+
+/* ==========================================
+   SECTION ANIMATION
+========================================== */
+
+.packages{
+
+animation:fadeIn 1.2s ease;
+
+}
+
+.fleet{
+
+animation:slideUp 1.2s ease;
+
+}
+
+.why{
+
+animation:fadeIn 1.2s ease;
+
+}
+
+footer{
+
+animation:fadeIn 1.5s ease;
+
+}
+
+/* ==========================================
+   SCROLL REVEAL CLASSES
+========================================== */
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(60px);
+
+transition:all .8s ease;
+
+}
+
+.reveal.active{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* ==========================================
+   HOVER SCALE
+========================================== */
+
+.scale:hover{
+
+transform:scale(1.05);
+
+}
+
+/* ==========================================
+   SHADOW HOVER
+========================================== */
+
+.shadow-hover{
+
+transition:.3s;
+
+}
+
+.shadow-hover:hover{
+
+box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+}

@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Services | Dalemu Rides Uganda</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+.hero{
+background:url("images/services-banner.jpg") center center/cover no-repeat;
+}
+
+.overlay{
+background:rgba(0,0,0,.70);
+}
+
+.service-card{
+
+transition:.35s;
+
+}
+
+.service-card:hover{
+
+transform:translateY(-12px);
+
+box-shadow:0 25px 50px rgba(0,0,0,.25);
+
+}
+/* ==========================================
+   DALEMU MOBILE MENU
+   ========================================== */
+
+.dalemu-toggle {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #11140f;
+
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: 5px;
+
+    position: relative;
+    z-index: 5000;
+}
+
+.dalemu-toggle span {
+    width: 22px;
+    height: 2px;
+
+    background: white;
+
+    border-radius: 5px;
+
+    transition: .3s ease;
+}
+
+
+/* MOBILE SIDE MENU */
+
+.dalemu-mobile-menu {
+
+    position: fixed;
+
+    top: 0;
+    right: 0;
+
+    width: 290px;
+    height: 100vh;
+
+    background: #11140f;
+
+    padding: 25px;
+
+    transform: translateX(100%);
+
+    transition: transform .4s cubic-bezier(.77,0,.18,1);
+
+    z-index: 4500;
+
+    box-shadow: -10px 0 35px rgba(0,0,0,.35);
+}
+
+
+/* OPEN MENU */
+
+.dalemu-mobile-menu.dalemu-show {
+    transform: translateX(0);
+}
+
+
+/* MENU HEADER */
+
+.dalemu-menu-header {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 35px;
+
+    color: #c9a227;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* CLOSE BUTTON */
+
+.dalemu-close {
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.1);
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.dalemu-close:hover {
+
+    background: #c9a227;
+
+    color: #11140f;
+}
+
+
+/* MENU LINKS */
+
+.dalemu-mobile-menu a {
+
+    display: block;
+
+    padding: 16px 12px;
+
+    margin-bottom: 5px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    border-radius: 8px;
+
+    transition: .25s ease;
+}
+
+
+.dalemu-mobile-menu a:hover {
+
+    color: #e2c45a;
+
+    background: rgba(201,162,39,.12);
+
+    padding-left: 20px;
+}
+
+
+/* BACKGROUND OVERLAY */
+
+.dalemu-menu-bg {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.55);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .3s ease;
+
+    z-index: 4000;
+}
+
+
+.dalemu-menu-bg.dalemu-bg-show {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+.dalemu-call-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #df7802, #f67f00);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+}
+
+.dalemu-call-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.dalemu-call-btn:active {
+    transform: scale(0.96);
+}
+
+
+
+/* MOBILE ONLY */
+
+@media (max-width: 700px) {
+
+    .dalemu-toggle {
+        display: flex;
+    }
+
+}
+
+
+/* DESKTOP */
+
+@media (min-width: 701px) {
+
+    .dalemu-mobile-menu,
+    .dalemu-menu-bg {
+        display: none;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body class="bg-white text-gray-800">
+
+<!-- ================= NAVIGATION ================= -->
+
+
+<!-- MOBILE MENU BUTTON -->
+<button class="dalemu-toggle" id="dalemuToggle" type="button" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<!-- MOBILE MENU -->
+<div class="dalemu-mobile-menu" id="dalemuMobileMenu">
+
+    <div class="dalemu-menu-header">
+        <span>MENU</span>
+
+        <button class="dalemu-close" id="dalemuClose" type="button">
+            &times;
+        </button>
+    </div>
+
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="services.html">Services</a>
+    <a href="fleet.html">Fleet</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact Us</a>
+
+</div>
+
+<div class="dalemu-menu-bg" id="dalemuMenuBg"></div>
+
+
+</div>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" >
+
+<div class="overlay" style="background-color: #492905;">
+
+<div class="max-w-7xl mx-auto py-36 text-center text-white px-6">
+
+<h4 class="uppercase tracking-widest text-orange-400">
+<img src="images/badge.png"
+
+class="rounded-xl shadow-2xl" style="width: 100px; height: auto; margin: 0 auto; display: block;">
+DALEMU RIDES UGANDA
+
+</h4>
+
+<h1 class="text-6xl font-extrabold mt-6">
+
+OUR SERVICES
+
+</h1>
+
+<p class="mt-8 max-w-3xl mx-auto text-xl" >
+
+Airport Transfers,TownRun, Safaris and Tours.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= SERVICES ================= -->
+
+<section class="py-24" style="background-color: #df7802;">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<h2 class="text-center text-5xl font-bold">
+
+What We Offer
+
+</h2>
+
+<div class="w-24 h-1 bg-orange-500 mx-auto my-8" ></div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-16" style="background-color: #df7802;">
+
+<div class="service-card bg-white rounded-xl shadow-lg p-10">
+
+<div class="text-5xl">✈️</div>
+
+<h3 class="text-2xl font-bold mt-6">
+
+Airport Transfers
+
+</h3>
+
+<p class="mt-4">
+
+<!-- Replace -->
+
+Reliable airport pickups and drop-offs with professional drivers.
+
+</p>
+
+</div>
+
+<div class="service-card bg-white rounded-xl shadow-lg p-10">
+
+<div class="text-5xl">🚗</div>
+
+<h3 class="text-2xl font-bold mt-6">
+
+Car Hire
+
+</h3>
+
+<p class="mt-4">
+
+Luxury vehicles for business, holidays, weddings, and personal travel.
+
+</p>
+
+</div>
+
+<div class="service-card bg-white rounded-xl shadow-lg p-10">
+
+<div class="text-5xl">🦁</div>
+
+<h3 class="text-2xl font-bold mt-6">
+
+Wildlife Safaris
+
+</h3>
+
+<p class="mt-4">
+
+Explore Uganda's national parks with experienced tour guides.
+
+</p>
+
+</div>
+
+<div class="service-card bg-white rounded-xl shadow-lg p-10">
+
+<div class="text-5xl">🏞️</div>
+
+<h3 class="text-2xl font-bold mt-6">
+
+Customized Tours
+
+</h3>
+
+<p class="mt-4">
+
+Personalized itineraries tailored to your travel preferences.
+
+</p>
+
+</div>
+
+<div class="service-card bg-white rounded-xl shadow-lg p-10">
+
+<div class="text-5xl">🏢</div>
+
+<h3 class="text-2xl font-bold mt-6">
+
+Corporate Transport
+
+</h3>
+
+<p class="mt-4">
+
+Professional transport solutions for organizations and events.
+
+</p>
+
+</div>
+
+<div class="service-card bg-white rounded-xl shadow-lg p-10">
+
+<div class="text-5xl">📡</div>
+
+<h3 class="text-2xl font-bold mt-6">
+
+Vehicle Tracking
+
+</h3>
+
+<p class="mt-4">
+
+GPS tracking installation and monitoring for enhanced vehicle security.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="bg-gray-100 py-24" style="background-color: rgb(232, 105, 7);">
+
+<div class="max-w-6xl mx-auto px-6">
+
+<h2 class="text-center text-5xl font-bold">
+
+How It Works
+
+</h2>
+
+<div class="grid md:grid-cols-4 gap-8 mt-16 text-center">
+
+<div>
+
+<div class="w-16 h-16 bg-orange-500 rounded-full text-white flex items-center justify-center text-2xl font-bold mx-auto">
+
+1
+
+</div>
+
+<h3 class="mt-6 font-bold text-xl">
+
+Choose a Service
+
+</h3>
+
+</div>
+
+<div>
+
+<div class="w-16 h-16 bg-orange-500 rounded-full text-white flex items-center justify-center text-2xl font-bold mx-auto">
+
+2
+
+</div>
+
+<h3 class="mt-6 font-bold text-xl">
+
+Send a WhatsApp message to +256 700 301 716 with your booking details.
+
+</h3>
+
+</div>
+
+<div>
+
+<div class="w-16 h-16 bg-orange-500 rounded-full text-white flex items-center justify-center text-2xl font-bold mx-auto">
+
+3
+
+</div>
+
+<h3 class="mt-6 font-bold text-xl">
+
+Confirm Booking with Dalemu Rides and make payment.
+
+</h3>
+
+</div>
+
+<div>
+
+<div class="w-16 h-16 bg-orange-500 rounded-full text-white flex items-center justify-center text-2xl font-bold mx-auto">
+
+4
+
+</div>
+
+<h3 class="mt-6 font-bold text-xl">
+
+wait for your driver to pick you up and enjoy your trip with Dalemu Rides.
+
+</h3>
+
+</div>
+<div>
+
+<div class="w-16 h-16 bg-orange-500 rounded-full text-white flex items-center justify-center text-2xl font-bold mx-auto">
+
+5
+
+</div>
+
+<h3 class="mt-6 font-bold text-xl">
+
+After your trip, you can provide feedback to help us improve our services to serve you better. send feedback to +256 700 301 716 via WhatsApp or call.
+
+</h3>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= WHY US ================= -->
+
+<section class="py-24">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<h2 class="text-center text-5xl font-bold">
+
+Why Choose Dalemu Rides?
+
+</h2>
+
+<div class="grid lg:grid-cols-2 gap-16 mt-20">
+
+<div>
+
+<ul class="space-y-5 text-lg">
+
+<li>✔ Professional Drivers</li>
+
+<li>✔ Affordable Pricing</li>
+
+<li>✔ Secure Payments</li>
+
+<li>✔ Tailor-made Tours</li>
+
+<li>✔ 24/7 Customer Support</li>
+
+<li>✔ Reliable Airport Transfers</li>
+
+<li>✔ Experienced Tour Guides</li>
+
+<li>✔ Safe & Comfortable Travel</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<img src="images/badge.png"
+
+class="rounded-xl shadow-2xl">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= CTA ================= -->
+
+<section class="bg-orange-500 py-24 text-center text-white">
+
+<h2 class="text-5xl font-bold">
+
+Ready To Travel?
+
+</h2>
+
+<p class="mt-8 text-xl">
+
+Book your transport or safari today with Dalemu Rides Uganda.
+
+</p>
+
+<a href="https://wa.me/256700301716" target="_blank"
+
+class="inline-block bg-white text-orange-600 px-8 py-4 rounded-lg font-bold mt-10">
+
+WHATSAPP US
+
+</a>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="bg-orange-500 text-white py-16" style="height: fit-content;">
+
+<div>
+
+<h3 class="font-bold text-orange-500">
+
+<a href="tel:+256700301716" class="dalemu-call-btn">
+    <i class="fa-solid fa-phone"></i>
+    Call Us: +256 700 301 716
+</a>
+
+
+
+</h3>
+
+
+</p>
+
+</div>
+
+</div>
+
+<div class="text-center text-gray-400 mt-12" st>
+
+© 2026 Dalemu Rides Uganda. All Rights Reserved.
+
+</div>
+
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+    const openButton = document.getElementById("dalemuToggle");
+    const closeButton = document.getElementById("dalemuClose");
+
+    const mobileMenu = document.getElementById("dalemuMobileMenu");
+    const menuBackground = document.getElementById("dalemuMenuBg");
+
+
+    function openDalemuMenu() {
+
+        mobileMenu.classList.add("dalemu-show");
+
+        menuBackground.classList.add("dalemu-bg-show");
+
+        document.body.style.overflow = "hidden";
+
+    }
+
+
+    function closeDalemuMenu() {
+
+        mobileMenu.classList.remove("dalemu-show");
+
+        menuBackground.classList.remove("dalemu-bg-show");
+
+        document.body.style.overflow = "";
+
+    }
+
+
+    /* OPEN */
+
+    openButton.addEventListener("click", function () {
+
+        openDalemuMenu();
+
+    });
+
+
+    /* CLOSE */
+
+    closeButton.addEventListener("click", function () {
+
+        closeDalemuMenu();
+
+    });
+
+
+    /* CLOSE WHEN CLICKING OUTSIDE */
+
+    menuBackground.addEventListener("click", function () {
+
+        closeDalemuMenu();
+
+    });
+
+
+    /* CLOSE MENU AFTER SELECTING A PAGE */
+
+    const menuLinks = mobileMenu.querySelectorAll("a");
+
+    menuLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            closeDalemuMenu();
+
+        });
+
+    });
+
+});
+</script>
+
+</body>
+</html>
